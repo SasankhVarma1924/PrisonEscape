@@ -1,0 +1,80 @@
+[gd_scene load_steps=13 format=3 uid="uid://bu3h17m6msp45"]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_fqgwe"]
+[ext_resource type="Texture2D" uid="uid://ovoqfbevljtw" path="res://assets/tiile1.png" id="1_vfw4l"]
+[ext_resource type="Texture2D" uid="uid://0bkl7dr761n6" path="res://assets/wallv.png" id="3_8t0lr"]
+[ext_resource type="Script" path="res://scripts/Player.gd" id="4_5t818"]
+[ext_resource type="Texture2D" uid="uid://v8utg8n3t20c" path="res://assets/wallh.png" id="4_w0qdx"]
+[ext_resource type="Texture2D" uid="uid://d3d5ed4diirlf" path="res://icon.svg" id="4_yhxni"]
+[ext_resource type="Texture2D" uid="uid://bbtn8x7dn1a1i" path="res://assets/2dlight.png" id="7_60lnb"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_00ben"]
+texture = ExtResource("1_vfw4l")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ys8bc"]
+texture = ExtResource("3_8t0lr")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-1, -10, -1, 10, 1, 10, 1, -10)
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxpf4"]
+texture = ExtResource("4_w0qdx")
+texture_region_size = Vector2i(20, 20)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-10, -1, 10, -1, 10, 1, -10, 1)
+
+[sub_resource type="TileSet" id="TileSet_m3yan"]
+tile_size = Vector2i(20, 20)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_00ben")
+sources/1 = SubResource("TileSetAtlasSource_ys8bc")
+sources/2 = SubResource("TileSetAtlasSource_vxpf4")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cag1k"]
+size = Vector2(64, 64)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_fqgwe")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0, 0, 0, 1)
+
+[node name="prison" type="TileMap" parent="."]
+texture_filter = 1
+position = Vector2(400, 400)
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_m3yan")
+format = 2
+layer_0/name = "prison"
+layer_0/tile_data = PackedInt32Array(-196612, 0, 0, -196610, 0, 0, -262144, 0, 0, -262142, 0, 0, -262140, 0, 0, -262149, 0, 0, -262148, 0, 0, -262147, 0, 0, -262146, 0, 0, -262145, 0, 0, -327680, 0, 0, -327679, 0, 0, -327678, 0, 0, -327677, 0, 0, -327676, 0, 0, -131077, 0, 0, -131076, 0, 0, -131075, 0, 0, -131074, 0, 0, -131073, 0, 0, -196608, 0, 0, -196607, 0, 0, -196606, 0, 0, -196605, 0, 0, -65540, 0, 0, -65539, 0, 0, -65538, 0, 0, -65537, 0, 0, -131072, 0, 0, -131071, 0, 0, -131070, 0, 0, -131069, 0, 0, -131068, 0, 0, -5, 0, 0, -4, 0, 0, -3, 0, 0, -2, 0, 0, -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, 65532, 0, 0, 65533, 0, 0, 65534, 0, 0, 65535, 0, 0, 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 131067, 0, 0, 131068, 0, 0, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 196604, 0, 0, 196605, 0, 0, 196606, 0, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 262139, 0, 0, 262140, 0, 0, 262141, 0, 0, 262142, 0, 0, 262143, 0, 0, 196608, 0, 0, 196609, 0, 0, 196610, 0, 0, 196611, 0, 0, 196612, 0, 0, 327676, 0, 0, 327678, 0, 0, 327679, 0, 0, 262144, 0, 0, 262145, 0, 0, 262146, 0, 0, 262147, 0, 0, 262148, 0, 0, -196611, 0, 0, -196609, 0, 0, -262143, 0, 0, -262141, 0, 0, -196604, 0, 0, -65541, 0, 0, -196613, 0, 0, 65531, 0, 0, 196603, 0, 0, 327675, 0, 0, 327677, 0, 0)
+layer_1/name = "walls"
+layer_1/enabled = true
+layer_1/modulate = Color(1, 1, 1, 1)
+layer_1/y_sort_enabled = false
+layer_1/y_sort_origin = 0
+layer_1/z_index = 0
+layer_1/tile_data = PackedInt32Array(327678, 2, 0, 1, 2, 0, -131069, 2, 0, 262141, 1, 0, 196606, 1, 0, 196608, 1, 0, 65534, 1, 0, 65537, 1, 0, 0, 1, 0, 65536, 1, 0)
+
+[node name="Player" type="CharacterBody2D" parent="."]
+scale = Vector2(0.8, 0.8)
+script = ExtResource("4_5t818")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="Player"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_yhxni")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+shape = SubResource("RectangleShape2D_cag1k")
+
+[node name="PointLight2D" type="PointLight2D" parent="Player"]
+texture = ExtResource("7_60lnb")
+texture_scale = 1.75
